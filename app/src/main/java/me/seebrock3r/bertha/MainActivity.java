@@ -1,6 +1,7 @@
 package me.seebrock3r.bertha;
 
 import android.content.Intent;
+import android.content.pm.ShortcutManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         String host = uri.getHost();
+        reportShortcutUsed(host);
         switch (host) {
             case "banana":
                 iconView.setImageResource(R.drawable.ic_shortcut_banana_foreground);
@@ -37,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
             default:
                 Log.e("Bertha", "Invalid deeplink: " + uri);
+        }
+    }
+
+    private void reportShortcutUsed(String shortcutId) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N_MR1) {
+            ShortcutManager shortcutManager = (ShortcutManager) getSystemService(SHORTCUT_SERVICE);
+            shortcutManager.reportShortcutUsed(shortcutId);
         }
     }
 }

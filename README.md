@@ -10,10 +10,10 @@ This showcases:
     * Originally used in the Pixel launcher to have visual coherency
     * Replaced by Adaptive Icons in Android O (see next bullet point)                        
     * Must use PNGs as vector drawables and WEBP images were not supported for launcher icons
- * **Adaptive Icons** for Android 8.0 O (API 25) and later
+ * **Adaptive Icons** for Android 8.0 O (API 26) and later
     * Can use vector drawables (finally)
     * Different canvas size, 108dp, with a 72dp visible area
-    * Safe area is actually a circle with a 72dp diameter, not a square
+    * Safe area is actually a circle with a 66dp diameter, not a square
     * Composed of background and foreground layers, mask is provided by the launcher
     * Can be animated (but aren't yet as of Android O Developer Preview 3)
  * **Launcher shortcuts** for Android 7.1 Nougat (API 25) and later
